@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import translationAPI from "../translationsAPI";
 
 const Translator = () => {
 	const [input, setInput] = useState("");
@@ -13,7 +14,14 @@ const Translator = () => {
 			if (/[aeiou]/i.test(p1)) {
 				return (p2 = match + "way");
 			}
-			return p2 + p1 + "ay";
+			if (/[A-Z]/.test(p1)) {
+				p2 = p2.replace(/^\w/, function(x) {
+					return x.toUpperCase();
+				});
+				return p2 + p1.toLowerCase() + "ay";
+			} else {
+				return p2 + p1 + "ay";
+			}
 		});
 		return setTranslation(pigLatin);
 	};
@@ -21,6 +29,10 @@ const Translator = () => {
 	useEffect(() => {
 		translator();
 	});
+
+	const handleSave = event => {
+		translationAPI.createTranslation(event);
+	};
 
 	return (
 		<div>
@@ -30,6 +42,7 @@ const Translator = () => {
 				onChange={handleInput}
 			/>
 			<p>{translation}</p>
+			<button onClick={handleSave}>Save Translation</button>
 		</div>
 	);
 };

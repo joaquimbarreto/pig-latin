@@ -4,14 +4,6 @@ class TranslationsController < ApplicationController
         @translations = Translation.all
     end
 
-    def show
-        
-    end
-
-    def new
-        @translation = Translation.new
-    end
-
     def create
         @translation = Translation.new(translation_params)
     end
