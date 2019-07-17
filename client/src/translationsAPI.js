@@ -10,13 +10,13 @@ class translationsAPI {
 		return fetch("http://localhost:3001/translations").then(res => res.json());
 	}
 
-	static deleteTranslation(translation) {
+	static deleteTranslation(id) {
 		return fetch("http://localhost:3001/delete_translation", {
 			method: "DELETE",
 			headers: {
 				"Content-Type": "application/json"
 			},
-			body: JSON.stringify({ translation })
+			body: JSON.stringify({ id })
 		});
 	}
 
@@ -26,7 +26,7 @@ class translationsAPI {
 			headers: {
 				"Content-Type": "application/json"
 			},
-			body: JSON.stringify({ translation })
+			body: JSON.stringify(translation)
 		}).then(res => res.json());
 	}
 }

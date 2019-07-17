@@ -12,6 +12,7 @@ class TranslationsController < ApplicationController
         else
             render json: {error: "Unable to create translation."}, status: 400
         end
+        redirect_to translations_path
     end
 
     def destroy

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import translationAPI from "../translationsAPI";
+import translationsAPI from "../translationsAPI";
 
 const Translator = () => {
 	const [input, setInput] = useState("");
@@ -30,8 +30,11 @@ const Translator = () => {
 		translator();
 	});
 
-	const handleSave = event => {
-		translationAPI.createTranslation(event);
+	const handleSave = () => {
+		translationsAPI.createTranslation({
+			input,
+			pig_latin: translation
+		});
 	};
 
 	return (
