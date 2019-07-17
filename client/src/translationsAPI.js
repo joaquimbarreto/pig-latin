@@ -1,15 +1,17 @@
 class translationsAPI {
-	static init() {
-		process.env.REACT_APP_STAGE === "dev"
-			? (this.base_URL = "http://localhost:3001")
-			: (this.base_URL = "https://www.piglatin.app");
-	}
+	// static init() {
+	// 	process.env.REACT_APP_STAGE === "dev"
+	// 		? (this.base_URL = "http://localhost:3001")
+	// 		: (this.base_URL = "https://www.piglatin.app");
+	// }
 	static translations() {
-		return fetch(this.base_URL + "/translations").then(res => res.json());
+		// return fetch(this.base_URL + "/translations").then(res => res.json());
+
+		return fetch("http://localhost:3001/translations").then(res => res.json());
 	}
 
 	static deleteTranslation(translation) {
-		return fetch(this.base_URL + "/delete_translation", {
+		return fetch("http://localhost:3001/delete_translation", {
 			method: "DELETE",
 			headers: {
 				"Content-Type": "application/json"
@@ -19,7 +21,7 @@ class translationsAPI {
 	}
 
 	static createTranslation(translation) {
-		return fetch(this.base_URL + "/create_translation", {
+		return fetch("http://localhost:3001/create_translation", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -29,6 +31,6 @@ class translationsAPI {
 	}
 }
 
-translationsAPI.init();
+// translationsAPI.init();
 
 export default translationsAPI;

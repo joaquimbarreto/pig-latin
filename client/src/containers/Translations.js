@@ -11,7 +11,7 @@ const Translations = () => {
 	const handleDelete = id => {
 		translationsAPI.deleteTranslation(id);
 	};
-	debugger;
+	// debugger;
 	return (
 		<div>
 			<h2>List of Saved Translations</h2>
@@ -19,7 +19,8 @@ const Translations = () => {
 				{translations.map(translation => {
 					return (
 						<li>
-							{translation}
+							<p>{translation.input}</p>
+							<p>{translation.pig_latin}</p>
 							<button onClick={handleDelete}>Delete</button>
 						</li>
 					);

@@ -2,17 +2,22 @@ class TranslationsController < ApplicationController
     
     def index
         @translations = Translation.all
+        render json: @translations
     end
 
     def create
         @translation = Translation.create(translation_params)
-        redirect_to translation_path(@translation)
+        if @translation.save
+            render json: @translation
+        else
+            render json: {error: "Unable to create translation."}, status: 400
+        end
     end
 
     def destroy
         @translation = Translation.find(params[:id])
-        @translation.destroy(translation_params)
-        redirect_to translation_path(@translation)
+        @translation.destroy
+        redirect_to translations_path
     end
 
     private
