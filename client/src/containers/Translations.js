@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import translationsAPI from "../translationsAPI";
+import "../App.css";
 
 const Translations = () => {
 	const [translations, setTranslations] = useState([]);
@@ -19,9 +20,11 @@ const Translations = () => {
 				{translations.map(translation => {
 					return (
 						<li>
-							<p>{translation.input}</p>
-							<p>{translation.pig_latin}</p>
-							<button onClick={handleDelete(translation.id)}>Delete</button>
+							<div className="list-items">
+								<p>{translation.input}</p>
+								<p>{translation.pig_latin}</p>
+								<button onClick={handleDelete(translation.id)}>Delete</button>
+							</div>
 						</li>
 					);
 				})}

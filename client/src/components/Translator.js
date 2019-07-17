@@ -38,14 +38,24 @@ const Translator = () => {
 	};
 
 	return (
-		<div>
-			<input
-				input="text"
-				placeholder="input text here"
-				onChange={handleInput}
-			/>
-			<p>{translation}</p>
-			<button onClick={handleSave}>Save Translation</button>
+		<div className="translator">
+			<div className="input-translation">
+				<div className="user-input">
+					<label>Input</label>
+					<textarea
+						input="text"
+						placeholder="input text here"
+						onChange={handleInput}
+					/>
+				</div>
+				<div className="pig-latin-translation">
+					<label>Translation</label>
+					<textarea value={translation} readOnly />
+				</div>
+			</div>
+			<div>
+				<button onClick={handleSave}>Save Translation</button>
+			</div>
 		</div>
 	);
 };
