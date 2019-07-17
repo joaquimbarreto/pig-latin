@@ -5,11 +5,14 @@ class TranslationsController < ApplicationController
     end
 
     def create
-        @translation = Translation.new(translation_params)
+        @translation = Translation.create(translation_params)
+        redirect_to translation_path(@translation)
     end
 
     def destroy
-        @translation.destroy
+        @translation = Translation.find(params[:id])
+        @translation.destroy(translation_params)
+        redirect_to translation_path(@translation)
     end
 
     private
