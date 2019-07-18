@@ -34,8 +34,8 @@
 
 .list-items {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: left;
+  justify-content: left;
 }
 
 p {
@@ -43,7 +43,9 @@ p {
 }
 
 button {
-  padding: 4px;
+  padding: 10px;
+  margin-right: 5vh;
+  margin-left: 5vh
 }
 
 
@@ -82,4 +84,10 @@ ul {
 
 label {
   padding: 2vh
+}
+
+.saved {
+  display: flex;
+  margin-top: 5vh;
+  padding: 5vh
 }

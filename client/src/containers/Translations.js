@@ -4,14 +4,19 @@ import "../App.css";
 
 const Translations = () => {
 	const [translations, setTranslations] = useState([]);
+	// const [deleting, setDeleting] = useState(false);
+
+	const getTranslations = () => {
+		translationsAPI.translations().then(data => setTranslations(data));
+	};
 
 	useEffect(() => {
-		translationsAPI.translations().then(data => setTranslations(data));
+		getTranslations();
 	}, []);
 
-	const handleDelete = id => {
-		translationsAPI.deleteTranslation(id);
-	};
+	// const handleDelete = id => {
+	// 	translationsAPI.deleteTranslation(id);
+	// };
 
 	return (
 		<div>
@@ -23,7 +28,11 @@ const Translations = () => {
 							<div className="list-items">
 								<p>{translation.input}</p>
 								<p>{translation.pig_latin}</p>
-								<button onClick={handleDelete(translation.id)}>Delete</button>
+								<button
+								// onClick={handleDelete(translation.id)}
+								>
+									Delete
+								</button>
 							</div>
 						</li>
 					);
