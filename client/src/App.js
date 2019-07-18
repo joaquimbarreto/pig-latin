@@ -53,7 +53,7 @@ const App = () => {
 		setInput("");
 		setPigLatin("");
 		document.getElementById("input").value = "";
-		document.getElementById("pl").value = "";
+		document.getElementById("pl-translation").value = "";
 	};
 
 	const handleDelete = id => {
@@ -82,7 +82,7 @@ const App = () => {
 					</div>
 					<div className="pig-latin-translation">
 						<label>Translation</label>
-						<textarea id="pl" value={pigLatin} readOnly />
+						<textarea id="pl-translation" value={pigLatin} readOnly />
 					</div>
 				</div>
 				<div className="buttons">
